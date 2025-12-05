@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CRUD1.Models.Employee>
+
+<h2>Employees</h2>
+
+<a class="btn btn-primary" href="/Employee/Create">Create</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Email</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
