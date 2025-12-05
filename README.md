@@ -111,3 +111,88 @@ Details.cshtml
     </tbody>
 </table>
 ```
+**Controller**
+
+```cshtml
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NewProject.DAL;
+using NewProject.Models;
+
+namespace NewProject.Controllers
+{
+    public class EmployeeController : Controller
+    {
+        private readonly EmployeeContext _context;
+
+        public EmployeeController(EmployeeContext context)
+        {
+            _context = context;
+        }
+        //List View
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Employees.ToListAsync());
+        }
+
+        //Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Employees.Add(employee);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+
+        //Edit
+        public async Task<IActionResult> Edit(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+            return View(employee);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Employees.Update(employee);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+
+        //View Details
+        public async Task<IActionResult> Details(int id)
+        {
+            var emp = await _context.Employees.FindAsync(id);
+            return View(emp);
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var emp = await _context.Employees.FindAsync(id);
+            return View(emp);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var emp = await _context.Employees.FindAsync(id);
+            _context.Employees.Remove(emp);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
+    }
+}
+```
