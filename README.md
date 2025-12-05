@@ -1,6 +1,7 @@
 4 Razor Views of CRUD
 
-//Create 
+*** //Create ***
+<!---
 @model NewProject.Models.Employee
 <h2>Create Employee</h2>
 
@@ -24,7 +25,7 @@
 
     <button class="btn btn-success" type="submit">Save</button>
 </form>
-
+--->
 
 //Delete
 @model NewProject.Models.Employee
