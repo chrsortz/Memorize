@@ -7,15 +7,15 @@ namespace CRUD1.Controllers
 {
     public class EmployeeController : Controller
     {
-        private readonly EmployeeContext _employeeContext;
+        private readonly EmployeeContext _context;
 
-        public EmployeeController(Employee _context)
+        public EmployeeController(EmployeeContext context)
         {
-            _employeeContext = _context;
+            _context = context;
         }
-        public async Task<IActionResult> Index()
+       public async Task<IActionResult> Index()
         {
-            return View(await _employeeContext.Employees.ToListAsync());
+            return View(await _context.Employees.ToListAsync());
         }
     }
 }

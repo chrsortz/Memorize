@@ -2,23 +2,23 @@
 
 <h2>Employees</h2>
 
-<a class="btn btn-primary" href="/Employee/Create">Create</a>
+<a class="btn btn-primary mb-3" href="/Employee/Create">Create</a>
 
-<table>
+<table class ="table table-bordered">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Email</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Age</th>
+            <th class="text-center">Email</th>
         </tr>
     </thead>
     <tbody>
         @foreach(var item in Model)
         {
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Age</td>
-                <td>@item.Email</td>
+                <td class="text-center">@item.Name</td>
+                <td class="text-center">@item.Age</td>
+                <td class="text-center">@item.Email</td>
             </tr>
         }
 
