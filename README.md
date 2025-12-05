@@ -1,5 +1,5 @@
 ✅ Create.cshtml
-@model NewProject.Models.Employee
+<pre> '''text @model NewProject.Models.Employee
 <h2>Create Employee</h2>
 
 <form method="post">
@@ -17,10 +17,10 @@
 
     <button class="btn btn-success" type="submit">Save</button>
 </form>
-
+</pre>
 
 ✅ Delete.cshtml
-@model NewProject.Models.Employee
+<pre> '''text @model NewProject.Models.Employee
 <h2>Delete Employee</h2>
 
 <p>Are you sure you want to delete <strong>@Model.FirstName @Model.LastName</strong>?</p>
@@ -29,10 +29,10 @@
     <button class="btn btn-danger">Delete</button>
     <a href="/Employee">Cancel</a>
 </form>
-
+</pre>
 
 ✅ Details.cshtml
-@model NewProject.Models.Employee
+<pre> '''text @model NewProject.Models.Employee
 <h2>Employee Details</h2>
 
 <p><strong>Name:</strong> @Model.FirstName @Model.LastName</p>
@@ -40,10 +40,10 @@
 <p><strong>Email:</strong> @Model.Email</p>
 
 <a href="/Employee">Back</a>
-
+</pre>
 
 ✅ Edit.cshtml
-@model NewProject.Models.Employee
+<pre> '''text @model NewProject.Models.Employee
 <h2>Edit Employee</h2>
 
 <form method="post">
@@ -63,10 +63,10 @@
 
     <button class="btn btn-primary">Update</button>
 </form>
-
+</pre>
 
 ✅ Index.cshtml
-@model IEnumerable<NewProject.Models.Employee>
+<pre> '''text @model IEnumerable<NewProject.Models.Employee>
 
 <h2>Employees</h2>
 <a class="btn btn-primary" href="/Employee/Create">Create New</a>
@@ -98,3 +98,4 @@
         }
     </tbody>
 </table>
+</pre>
