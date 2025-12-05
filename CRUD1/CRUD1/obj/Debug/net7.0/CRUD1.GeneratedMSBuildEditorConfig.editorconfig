@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Christian Dave Ortiz\source\repos\Memorize\CRUD1\CRUD1
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Christian Dave Ortiz/Source/Repos/Memorize/CRUD1/CRUD1/Views/Employee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Christian Dave Ortiz/Source/Repos/Memorize/CRUD1/CRUD1/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
