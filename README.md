@@ -37,7 +37,7 @@
 </form>
 ```
 
-Details.cshtml
+- Details.cshtml
 
 ```cshtml
 @model NewProject.Models.Employee
