@@ -17,12 +17,12 @@ namespace CRUD1.Controllers
         }
 
         //Dashboard - Index
-       public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             return View(await _context.Employees.ToListAsync());
         }
 
-        //Create
+        //Create 
         public IActionResult Create()
         {
             return View();
@@ -38,6 +38,26 @@ namespace CRUD1.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(employee);
-        }       
+        }
+
+        //Edit
+       public async Task<IActionResult> Edit(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+            return View(employee);
+        }
+
+        [HttpPost]
+        public async Task <IActionResult> Edit(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Employees.Update(employee);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+
+        }
     }
 }

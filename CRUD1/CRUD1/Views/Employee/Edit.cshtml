@@ -1,8 +1,9 @@
 ﻿@model CRUD1.Models.Employee
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
 <form method="post">
+    <input type="hidden" asp-for="Id"/>
 
     <label>Name</label>
     <input class="form-control" asp-for="Name" />
@@ -13,5 +14,6 @@
     <label>Email</label>
     <input class="form-control" asp-for="Email" />
 
-    <button class="btn btn-success" type="submit">Submit</button>
+    <button class="btn btn-primary">Update</button>
+
 </form>
