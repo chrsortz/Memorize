@@ -178,6 +178,8 @@ namespace NewProject.Controllers
             var emp = await _context.Employees.FindAsync(id);
             return View(emp);
         }
+
+        //Delete
         public async Task<IActionResult> Delete(int id)
         {
             var emp = await _context.Employees.FindAsync(id);
