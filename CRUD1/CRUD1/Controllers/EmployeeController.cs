@@ -9,13 +9,14 @@ namespace CRUD1.Controllers
     {
         private readonly EmployeeContext _employeeContext;
 
-        public EmployeeController (EmployeeContext employeeContext)
+        public EmployeeController(EmployeeContext employeeContext)
         {
             _employeeContext = employeeContext;
         }
 
-        //List
-        public async Task<IActionResult> Index(Employee employee)
+        //List 
+
+        public async Task<IActionResult> Index()
         {
             return View(await _employeeContext.Employees.ToListAsync());
         }
@@ -33,13 +34,13 @@ namespace CRUD1.Controllers
             {
                 _employeeContext.Employees.Add(employee);
                 await _employeeContext.SaveChangesAsync();
-                return RedirectToAction(nameof(Index)); 
+                return RedirectToAction(nameof(Index));
             }
             return View(employee);
         }
 
-        //Edit
 
+        //Edit
         public async Task<IActionResult> Edit(int id)
         {
             var employee = await _employeeContext.Employees.FindAsync(id);
@@ -57,5 +58,6 @@ namespace CRUD1.Controllers
             }
             return View(employee);
         }
+
     }
 }
