@@ -1,30 +1,38 @@
 ﻿@model IEnumerable<CRUD1.Models.Employee>
 
-<h2>Employees</h2>
+<h2>Employee List</h2>
 
 <a class="btn btn-primary mb-3" href="/Employee/Create">Create</a>
 
 <table class ="table table-bordered">
     <thead>
         <tr>
-            <th class="text-center">Name</th>
+            <th class="text-center">First Name</th>
+            <th class="text-center">Last Name</th>
             <th class="text-center">Age</th>
-            <th class="text-center">Email</th>
+            <th class="text-center">Date of Hire</th>
+            <th class="text-center">Email Address</th>
+            <th class="text-center">Position</th>
+            <th class="text-center">Salary</th>
             <th class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model)
+        @foreach (var item in Model)
         {
             <tr>
-                <td class="text-center">@item.Name</td>
+                <td class="text-center">@item.FirstName</td>
+                <td class="text-center">@item.LastName</td>
                 <td class="text-center">@item.Age</td>
+                <td class="text-center">@item.DateOfHire?.ToString("MM-dd-yyyy")</td>
                 <td class="text-center">@item.Email</td>
+                <td class="text-center">@item.Position</td>
+                <td class="text-center">@item.Salary?.ToString("C")</td>
                 <td class="text-center">
-                    <a href="/Employee/Edit/@item.Id">Edit</a>
+                    <a href="/Employee/Edit/@item.Id">Edit</a> | 
+                    <a href="/Employee/Delete/@item.Id">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
-
 </table>

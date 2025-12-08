@@ -1,17 +1,31 @@
 ﻿@model CRUD1.Models.Employee
 
-<h2>Create</h2>
+<h2>Create Employee</h2>
 
 <form method="post">
 
-    <label>Name</label>
-    <input class="form-control" asp-for="Name" />
+    <label>First Name</label>
+    <input class="form-control" asp-for="FirstName" />
+
+    <label>Last Name</label>
+    <input class="form-control" asp-for="LastName" />
 
     <label>Age</label>
     <input class="form-control" asp-for="Age" />
 
-    <label>Email</label>
+    <label>Date of Hire</label>
+    <input class="form-control" asp-for="DateOfHire" type="date" />
+
+    <label>Email Address</label>
     <input class="form-control" asp-for="Email" />
 
-    <button class="btn btn-success" type="submit">Submit</button>
+    <label>Position</label>
+    <input class="form-control" asp-for="Position" />
+
+    <label>Salary</label>
+    <input class="form-control" asp-for="Salary" />
+
+    <button class="btn btn-success mt-3" type="submit">Submit</button>
+    <a class="btn btn-danger mt-3" href="/Employee/Index">Back</a>
+
 </form>

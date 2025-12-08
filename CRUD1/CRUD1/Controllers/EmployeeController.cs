@@ -2,27 +2,25 @@
 using CRUD1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Reflection.Metadata.Ecma335;
 
 namespace CRUD1.Controllers
 {
     public class EmployeeController : Controller
     {
-        private readonly EmployeeContext _context;
+        private readonly EmployeeContext _employeeContext;
 
-        public EmployeeController(EmployeeContext context)
+        public EmployeeController (EmployeeContext employeeContext)
         {
-            _context = context;
+            _employeeContext = employeeContext;
         }
 
-        //Dashboard - Index
-        public async Task<IActionResult> Index()
+        //List
+        public async Task<IActionResult> Index(Employee employee)
         {
-            return View(await _context.Employees.ToListAsync());
+            return View(await _employeeContext.Employees.ToListAsync());
         }
 
-        //Create 
+        //Create
         public IActionResult Create()
         {
             return View();
@@ -33,31 +31,31 @@ namespace CRUD1.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Employees.Add(employee);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                _employeeContext.Employees.Add(employee);
+                await _employeeContext.SaveChangesAsync();
+                return RedirectToAction(nameof(Index)); 
             }
             return View(employee);
         }
 
         //Edit
-       public async Task<IActionResult> Edit(int id)
+
+        public async Task<IActionResult> Edit(int id)
         {
-            var employee = await _context.Employees.FindAsync(id);
+            var employee = await _employeeContext.Employees.FindAsync(id);
             return View(employee);
         }
 
         [HttpPost]
-        public async Task <IActionResult> Edit(Employee employee)
+        public async Task<IActionResult> Edit(Employee employee)
         {
             if (ModelState.IsValid)
             {
-                _context.Employees.Update(employee);
-                await _context.SaveChangesAsync();
+                _employeeContext.Employees.Update(employee);
+                await _employeeContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(employee);
-
         }
     }
 }
