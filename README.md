@@ -1,5 +1,7 @@
 **Razor Views**
 
+- Models (Id, FirstName, LastName, Age, DateOfHire, Position, Salary
+
 - Create.cshtml
 
 ```cshtml
