@@ -59,5 +59,12 @@ namespace CRUD1.Controllers
             return View(employee);
         }
 
+        //View 
+        public async Task<IActionResult> View(int id)
+        {
+            var employee = await _employeeContext.Employees.FindAsync(id);
+            return View(employee);
+        }
+
     }
 }
