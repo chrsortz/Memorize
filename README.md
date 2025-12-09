@@ -200,3 +200,17 @@ namespace NewProject.Controllers
     }
 }
 ```
+
+**Sample Required Fields**
+```cshtml
+//Model
+[Required(ErrorMessage="This is a required field")]
+
+//View
+<div><span asp-validation-for="Name" class=text-danger"></span></div>
+
+//Add on Footer of View
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+```
