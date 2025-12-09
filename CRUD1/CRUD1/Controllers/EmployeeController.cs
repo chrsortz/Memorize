@@ -66,5 +66,21 @@ namespace CRUD1.Controllers
             return View(employee);
         }
 
+        //Delete
+        public async Task<IActionResult> Delete(int id)
+        {
+            var employee = await _employeeContext.Employees.FindAsync(id);
+            return View(employee);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirm(int id)
+        {
+            var employee = await _employeeContext.Employees.FindAsync(id);
+            _employeeContext.Employees.Remove(employee);
+            await _employeeContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
